@@ -3,8 +3,9 @@ complete <- function(directory, id=1:332) {
         files_full_subset <- files_full[id] #subset of only the relevant ids
         dat <- do.call(rbind, lapply(files_full_subset, read.csv)) #read from all the csv files of relevant IDs into dataframe
         result <- data.frame()
-        for (i in unique(dat[,"ID"]))
+        for (i in unique(dat[,"ID"])) {
                 result <- rbind(result, c(i, sum(complete.cases(dat[dat[,"ID"] == i,]))))
+        }
                 #print(c(i, sum(complete.cases(dat[dat[,"ID"] == i,]))))
         colnames(result) <- c("id", "nobs")
         result        

@@ -1,5 +1,5 @@
 rankall <- function(outcome, num = "best") {
-        outcomedata <- read.csv("rprog-data-ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")## Read outcome data
+        outcomedata <- read.csv("Rprogramming/week4/rprog-data-ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")## Read outcome data
         
         validstates <- unique(outcomedata$State) #generate list of valid states
         validoutcomes <- c("heart attack", "heart failure", "pneumonia") #generate list of outcomes
@@ -17,9 +17,9 @@ rankall <- function(outcome, num = "best") {
                 ordereddata <- stateoutcomedata[order(as.numeric(stateoutcomedata[,outcomecolno]),stateoutcomedata[,2]),] #order the data in ascending order by outcome rate, then Hospital name
                 if (num == "best") {num <- 1}
                 if (num == "worst") {
-                        result <- rbind(result,data.frame("Hospital.Name"=tail(ordereddata[,"Hospital.Name"],1),"State"=state) )
+                        result <- rbind(result,data.frame("hospital"=tail(ordereddata[,"Hospital.Name"],1),"state"=state) )
                 } else {
-                        result <- rbind(result, data.frame("Hospital.Name"=ordereddata[num,"Hospital.Name"],"State"=state) )
+                        result <- rbind(result, data.frame("hospital"=ordereddata[num,"Hospital.Name"],"state"=state) )
                         
                         }
                 

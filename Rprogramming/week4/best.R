@@ -1,5 +1,5 @@
 best <- function(state, outcome) {
-        outcomedata <- read.csv("rprog-data-ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")## Read outcome data
+        outcomedata <- read.csv("Rprogramming/week4/rprog-data-ProgAssignment3-data/outcome-of-care-measures.csv", colClasses = "character")## Read outcome data
         
         validstates <- unique(outcomedata$State) #generate list of valid states
         validoutcomes <- c("heart attack", "heart failure", "pneumonia") #generate list of outcomes
